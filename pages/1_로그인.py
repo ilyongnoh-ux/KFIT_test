@@ -26,5 +26,25 @@ def login_page():
         }
         st.success("로그인 완료")
         st.rerun()
+import requests
+
+if st.button("🔎 GitHub repo 연결 테스트"):
+    owner = st.secrets["GITHUB_OWNER"]
+    repo = st.secrets["GITHUB_REPO"]
+    token = st.secrets["GITHUB_TOKEN"]
+
+    url = f"https://api.github.com/repos/{owner}/{repo}"
+    r = requests.get(url, headers={
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }, timeout=15)
+
+    st.write("status:", r.status_code)
+    try:
+        st.write(r.json())
+    except Exception:
+        st.write(r.text[:300])
+    st.stop()
 
 login_page()
