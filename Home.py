@@ -12,14 +12,14 @@ hide_header()
 set_bg_hack("background.jpg")
 
 # 사이드바 강제 숨김
-st.markdown(
-    """
-    <style>
-    [data-testid="stSidebar"] {display: none;}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+#st.markdown(
+#    """
+#    <style>
+#    [data-testid="stSidebar"] {display: none;}
+#    </style>
+#    """,
+#    unsafe_allow_html=True,
+#)
 
 # 네비게이션 스타일 (흰색 글씨)
 st.markdown(
@@ -118,6 +118,7 @@ st.markdown(
 
 # 항상 맨 마지막에 호출
 show_footer()
+
 
 
 
